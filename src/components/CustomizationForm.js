@@ -64,7 +64,7 @@ export default function CustomizationForm() {
                 />
               </Grid>
             ))}
-            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, ml: 2 }}>
+            <Button disabled={!formData.merchantName.length > 0 || !formData.specialImage.length > 0 || !formData.headerImage.length > 0 || !formData.customerText.length > 0 || !formData.buttonText.length > 0} type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, ml: 2 }}>
               Generate HTML
             </Button>
           </Grid>
