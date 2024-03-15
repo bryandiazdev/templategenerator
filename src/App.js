@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import CustomizationForm from './components/CustomizationForm';
+import { useTheme } from './ThemeContext'; // Adjust the import path as necessary
+import Switch from '@mui/material/Switch';
+
+function ThemeToggle() {
+  const { theme, toggleTheme } = useTheme();
+
+  return (
+    <Switch
+      checked={theme === 'dark'}
+      onChange={toggleTheme}
+      name="theme"
+      inputProps={{ 'aria-label': 'theme switch' }}
+    />
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <ThemeToggle/> */}
+      <CustomizationForm />
     </div>
   );
 }
