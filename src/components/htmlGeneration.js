@@ -181,7 +181,7 @@ export const generateHtmlContent = (formData) => {
                                                             <tr>
                                                                 <td class="pad" height="39" style="padding-bottom:5px;padding-top:5px;">
                                                                     <div style="direction:ltr;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
-                                                                        <p style="margin: 0;font-family:${formData.fontFamily};color:${formData.primaryColor};font-size:16px;letter-spacing:1px">&nbsp;{{Sender Nickname}}</p>
+                                                                        <p style="margin: 0;font-family:${formData.fontFamily};color:${formData.primaryColor};font-size:16px;letter-spacing:1px">&nbsp;{{Customer Nickname}}</p>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -190,7 +190,7 @@ export const generateHtmlContent = (formData) => {
                                                             <tr>
                                                                 <td class="pad" height="39" style="padding-bottom:5px;padding-top:5px;">
                                                                     <div style="direction:ltr;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
-                                                                        <p style="margin: 0;font-family:${formData.fontFamily};color:${formData.primaryColor};font-size:16px;letter-spacing:1px">&nbsp;{{Customer Nickname}}</p>
+                                                                        <p style="margin: 0;font-family:${formData.fontFamily};color:${formData.primaryColor};font-size:16px;letter-spacing:1px">&nbsp;{{Sender Nickname}}</p>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -275,7 +275,7 @@ export const generateHtmlContent = (formData) => {
                                                             <tr>
                                                                 <td class="pad" style="padding-bottom:25px;padding-top:10px;word-wrap: break-word;word-break:break-all ">
                                                                     <div style="color:#101112;direction:ltr;font-family: ${formData.fontFamily};font-size:14px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;mso-line-height-alt:16.8px;">
-                                                                        <p style="margin: 0;text-align: left;word-wrap: break-word; word-break:break-all; font-family:'arvo', Helvetica, Arial,sans-serif ">${formData.customerText}</p>
+                                                                        <p style="margin: 0;text-align: left;word-wrap: break-word; word-break:break-all; font-family:'arvo', Helvetica, Arial,sans-serif ">{{Customer Text}}</p>
                                                                     </div>
                                                                 </td>
                                                             </tr>

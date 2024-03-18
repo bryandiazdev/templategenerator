@@ -7,7 +7,6 @@ export default function CustomizationForm() {
     senderNickname: '',
     customerNickname: '',
     giftValue: '',
-    customerText: '',
     emailURL: '',
     secureURLAndKey: '',
     headerImage: '',
@@ -41,7 +40,7 @@ export default function CustomizationForm() {
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
             {textFieldData.concat([
-              { id: 'giftCardNickname', label: 'Gift Card Nickname', xs: 12 },
+              { id: 'giftCardNickname', label: 'Gift Card Naming Convention', xs: 12 },
               { id: 'fontFamily', label: 'Font Family', xs: 12 },
               { id: 'accentColor', label: 'Accent Color', xs: 12, sm: 6, type: 'color' },
               { id: 'buttonColor', label: 'Button Color', xs: 12, sm: 6, type: 'color' },
@@ -64,7 +63,7 @@ export default function CustomizationForm() {
                 />
               </Grid>
             ))}
-            <Button disabled={!formData.merchantName.length > 0 || !formData.specialImage.length > 0 || !formData.headerImage.length > 0 || !formData.customerText.length > 0 || !formData.buttonText.length > 0} type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, ml: 2 }}>
+            <Button disabled={!formData.merchantName.length > 0 || !formData.specialImage.length > 0 || !formData.headerImage.length > 0 || !formData.buttonText.length > 0} type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, ml: 2 }}>
               Generate HTML
             </Button>
           </Grid>
@@ -78,7 +77,6 @@ const textFieldData = [
     {id: 'merchantName', label: 'Merchant Name', xs: 12},
   { id: 'headerImage', label: 'Header Image URL', xs: 12 },
   { id: 'specialImage', label: 'Gift Card Image URL', xs: 12 },
-  { id: 'customerText', label: 'Customer Text', xs: 12, multiline: true, rows: 4 },
   { id: 'primaryColor', label: 'Primary Text Color', xs: 12, sm: 4, type: 'color' },
   { id: 'secondaryColor', label: 'Secondary Color', xs: 12, sm: 4, type: 'color' },
   { id: 'backgroundColor', label: 'Background Color', xs: 12, sm: 4, type: 'color' },
