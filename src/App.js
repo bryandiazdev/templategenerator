@@ -2,6 +2,7 @@ import React from 'react';
 import CustomizationForm from './components/CustomizationForm';
 import { useTheme } from './ThemeContext'; // Adjust the import path as necessary
 import Switch from '@mui/material/Switch';
+import SpaceParticles from './components/SpaceParticles';
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
@@ -19,7 +20,8 @@ function ThemeToggle() {
 function App() {
   return (
     <div>
-      {/* <ThemeToggle/> */}
+      <div style={{zIndex: '2'}}><ThemeToggle/></div>
+      <SpaceParticles/>
       <CustomizationForm />
     </div>
   );
