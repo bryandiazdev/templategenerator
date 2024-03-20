@@ -36,9 +36,9 @@ export default function CustomizationForm() {
   return (
     <Container component="main" maxWidth="md">
       <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography component="h1" variant="h5">Customize Your Template</Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-          <Grid container spacing={2}>
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3, background: 'white' }}>
+          <Grid sx={{background: 'white', paddingRight: '16px', boxShadow: '0 5px 10px 0 rgba(0, 0, 0, .15)', borderRadius: '16px'}} container spacing={2}>
+        <Typography component="h1" variant="h5" sx={{color: 'black', textAlign: 'center', width: '100%'}}>Customize Your Template</Typography>
             {textFieldData.concat([
               { id: 'giftCardNickname', label: 'Gift Card Naming Convention', xs: 12 },
               { id: 'fontFamily', label: 'Font Family', xs: 12 },
@@ -60,6 +60,7 @@ export default function CustomizationForm() {
                   rows={field.rows || 1}
                   type={field.type || 'text'}
                   InputLabelProps={field.type === 'color' ? { shrink: true } : undefined}
+                  sx={{color: 'white', background: 'transparent', borderRadius: '8px'}}
                 />
               </Grid>
             ))}
