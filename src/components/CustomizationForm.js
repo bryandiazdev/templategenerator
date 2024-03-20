@@ -19,7 +19,7 @@ const TypingEffect = ({ text, typingDelay = 1000, startDelay = 2000 }) => {
       return () => clearTimeout(timer);
     }, [text, typingDelay, startDelay]);
   
-    return <Typography style={{color: 'black', textAlign: 'center', width: '100%', display: 'block'}}>{displayedText}</Typography>;
+    return <Typography style={{color: 'black', textAlign: 'center', width: '100%', display: 'block', fontSize: '24px'}}>{displayedText}</Typography>;
   };
 
 export default function CustomizationForm() {
