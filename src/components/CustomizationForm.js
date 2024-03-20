@@ -1,6 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, TextField, Button, Typography, Container, Grid } from '@mui/material';
 import { downloadHtmlFile, generateHtmlContent } from './htmlGeneration'; // Ensure these utility functions are correctly imported
+import {motion} from 'framer-motion'
+
+const TypingEffect = ({ text, typingDelay = 1000, startDelay = 2000 }) => {
+    const [displayedText, setDisplayedText] = useState('');
+  
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        let i = 0;
+        const typingInterval = setInterval(() => {
+          setDisplayedText((prev) => prev + text[i]);
+          i++;
+          if (i >= text?.length) clearInterval(typingInterval);
+        }, typingDelay);
+      }, startDelay);
+  
+      return () => clearTimeout(timer);
+    }, [text, typingDelay, startDelay]);
+  
+    return <Typography style={{color: 'black', textAlign: 'center', width: '100%', display: 'block'}}>{displayedText}</Typography>;
+  };
 
 export default function CustomizationForm() {
   const [formData, setFormData] = useState({
@@ -31,14 +51,19 @@ export default function CustomizationForm() {
     e.preventDefault();
     const htmlContent = generateHtmlContent(formData);
     downloadHtmlFile(htmlContent, "customized-template.html");
-  };
+  }
 
   return (
-    <Container component="main" maxWidth="md">
+    <Container data-aos="fade-in" component="main" maxWidth="md">
       <Box sx={{ marginTop: 8, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3, background: 'white' }}>
+        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3, background: 'transparent' }}>
+        <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: .4, ease: "easeInOut" }}
+    >
           <Grid sx={{background: 'white', paddingRight: '16px', paddingTop: '16px', boxShadow: '0 5px 10px 0 rgba(0, 0, 0, .15)', borderRadius: '16px'}} container spacing={2}>
-        <Typography component="h1" variant="h5" sx={{color: 'black', textAlign: 'center', width: '100%'}}>Customize Your Template</Typography>
+        <TypingEffect startDelay={100} text={'Customize Your Template'} typingDelay={50}/>
             {textFieldData.concat([
               { id: 'giftCardNickname', label: 'Gift Card Naming Convention', xs: 12 },
               { id: 'fontFamily', label: 'Font Family', xs: 12 },
@@ -68,6 +93,7 @@ export default function CustomizationForm() {
               Generate HTML
             </Button>
           </Grid>
+          </motion.div>
         </Box>
       </Box>
     </Container>
