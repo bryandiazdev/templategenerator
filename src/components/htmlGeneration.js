@@ -211,7 +211,7 @@ export const generateHtmlContent = (formData) => {
                                                                 <td class="pad" style="width:40%;padding-right:0px;padding-left:0px;">
                                                                     <div align="center" style="width: 100%">
                                                                         <div align="center" style="width: 100%">
-                                                                            <img src="${formData.specialImage}"/>
+                                                                            <img style="width: 260px;" src="${formData.specialImage}"/>
                                                                         </div>
                                                                     </div>
                                                                 </td>
