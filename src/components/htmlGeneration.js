@@ -239,7 +239,7 @@ export const generateHtmlContent = (formData) => {
                                                                 <td class="pad" align="right" style="padding-left:0px;padding-right:35px">
                                                                     <div style="line-height:10px;display:inline-block;width:182px">
                                                                         <a href="{{Secure URL and Key}}">
-                                                                            <button style="background: ${formData.buttonColor};color: #000000;padding:.5rem 1rem;border-radius:.5rem;border: none;">${formData.buttonText}</button>
+                                                                            <button style="background: ${formData.buttonColor};color: #000000;padding:.5rem 1rem;border-radius:16px;border: none;width: 260px; position: relative;right:42px;">${formData.buttonText}</button>
                                                                         </a>
                                                                     </div>
                                                                 </td>
