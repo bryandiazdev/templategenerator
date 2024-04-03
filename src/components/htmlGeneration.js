@@ -1,6 +1,48 @@
 import React from 'react';
 
 export const generateHtmlContent = (formData) => {
+
+    const socialIconsHtml = formData.includeSocialIcons ? `
+    <table class="social_block block-1" width="100%" border="0"
+														cellpadding="0" cellspacing="0" role="presentation"
+														style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+														<tr>
+															<td class="pad"
+																style="background: ${formData.accentColor};padding-bottom:10px;padding-left:5px;padding-right:5px;padding-top:10px;text-align:center;">
+																<div align="center">
+																	<table class="social-table" width="146px" border="0"
+																		cellpadding="0" cellspacing="0"
+																		role="presentation"
+																		style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block;">
+																		<tr>
+																			<td style="padding:0 7px 0 7px;"><a href="${formData.facebookLink}"
+																					target="_blank"><img
+																						src="https://test-www.wgiftcard.com/private/541/images/facebook.png"
+																						width="32" height="32"
+																						alt="Facebook" title="Facebook"
+																						style="display: block; height: auto; border: 0;"></a>
+																			</td>
+																			<td style="padding:0 7px 0 7px;"><a href="${formData.twitterLink}"
+																					target="_blank"><img
+																						src="https://test-www.wgiftcard.com/private/541/images/twitter.png"
+																						width="32" height="32"
+																						alt="Twitter" title="Twitter"
+																						style="display: block; height: auto; border: 0;"></a>
+																			</td>
+																			<td style="padding:0 7px 0 7px;"><a href="${formData.instagramLink}"
+																					target="_blank"><img
+																						src="https://test-www.wgiftcard.com/private/541/images/instagram.png"
+																						width="32" height="32"
+																						alt="Instagram" title="Instagram"
+																						style="display: block; height: auto; border: 0;"></a>
+																			</td>
+																		</tr>
+																	</table>
+																</div>
+															</td>
+														</tr>
+													</table>
+    ` : ''
     // Construct your HTML string using formData, ensuring to inject dynamic values safely
     // This is a simplified example. You need to replace placeholders accordingly.
     return `<!DOCTYPE html>
@@ -35,18 +77,18 @@ export const generateHtmlContent = (formData) => {
     </head>
     
     <body style="margin: 0; background-color: ${formData.backgroundColor}; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;margin-top: 1.5em">
-        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff; max-width: 640px;" align="center" valign="middle">
+        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: ${formData.emailBackgroundColor}; max-width: 640px;" align="center" valign="middle">
             <tbody>
                 <tr>
                     <td>
-                        <table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff;">
+                        <table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: ${formData.emailBackgroundColor}">
                             <tbody>
                                 <tr>
                                     <td>
                                         <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #fff; color: #000; margin: 0 auto;">
                                             <tbody>
                                                 <tr>
-                                                    <td width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; background-color: #ffffff; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-bottom: 0px;">
+                                                    <td width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; background-color: ${formData.emailBackgroundColor}; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-bottom: 0px;">
                                                         <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
                                                             <tr>
                                                                 <td class="pad" style="padding-right:10px;padding-top:5px;">
@@ -60,7 +102,7 @@ export const generateHtmlContent = (formData) => {
                                                             <tr>
                                                                 <td class="pad" style="padding-right:10px;padding-top:5px;">
                                                                     <div style="color:#101112;direction:ltr;font-family: 'bebas-neue', ${formData.fontFamily};font-size:12px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:right;mso-line-height-alt:14.399999999999999px;">
-                                                                        <p style="margin: 0;font-size:12px;font-family:${formData.fontFamily};">View <a href="{{Email URL}}" style="color:${formData.primaryColor};font-size:12px;text-decoration: underline;font-family:${formData.fontFamily};">webpage</a> version.</p>
+                                                                        <p style="color: ${formData.primaryColor};margin: 0;font-size:12px;font-family:${formData.fontFamily};">View <a href="{{Email URL}}" style="color:${formData.primaryColor};font-size:12px;text-decoration: underline;font-family:${formData.fontFamily};">webpage</a> version.</p>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -99,14 +141,14 @@ export const generateHtmlContent = (formData) => {
                             </tbody>
                         </table>
     
-                        <table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff;">
+                        <table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: ${formData.emailBackgroundColor};">
                             <tbody>
                                 <tr>
                                     <td>
                                         <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff; border-bottom: 0 solid #fff; border-left: 0 solid #fff; border-right: 0px solid #fff; border-top: 0 solid #fff; color: #000; margin: 0 auto;">
                                             <tbody>
                                                 <tr>
-                                                    <td width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; background-color: #ffffff; padding-bottom: 15px; padding-top: 35px; vertical-align: top; border-top: 0px; border-bottom: 0px;">
+                                                    <td width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; background-color: ${formData.emailBackgroundColor}; padding-bottom: 15px; padding-top: 35px; vertical-align: top; border-top: 0px; border-bottom: 0px;">
                                                         <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                             <tr>
                                                                 <td align="left" class="pad" style="width:100%;padding-right:25px;padding-left:25px;padding-top:5px">
@@ -121,7 +163,7 @@ export const generateHtmlContent = (formData) => {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; background-color: #ffffff; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-bottom: 0px;">
+                                                    <td width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; background-color: ${formData.emailBackgroundColor}; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-bottom: 0px;">
                                                         <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                             <tr>
                                                                 <td class="pad" style="width:100%;padding-right:25px;padding-left:25px;padding-top:5px">
@@ -140,14 +182,14 @@ export const generateHtmlContent = (formData) => {
                             </tbody>
                         </table>
     
-                        <table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff;">
+                        <table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: ${formData.emailBackgroundColor};">
                             <tbody>
                                 <tr>
                                     <td>
-                                        <table width="640" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff; color: ${formData.primaryColor}; margin: 0 auto;">
+                                        <table width="640" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: ${formData.emailBackgroundColor}; color: ${formData.primaryColor}; margin: 0 auto;">
                                             <tbody>
                                                 <tr>
-                                                    <td class="column-1" width="17%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; background-color: #ffffff; padding-bottom: 20px; padding-left: 30px; padding-right: 0px; padding-top: 20px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px;">
+                                                    <td class="column-1" width="17%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; background-color: ${formData.emailBackgroundColor}; padding-bottom: 20px; padding-left: 30px; padding-right: 0px; padding-top: 20px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px;">
                                                         <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: keep-all">
                                                             <tr>
                                                                 <td class="pad" height="39" style="padding-bottom:5px;padding-top:5px;">
@@ -226,14 +268,14 @@ export const generateHtmlContent = (formData) => {
                             </tbody>
                         </table>
     
-                        <table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff;">
+                        <table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: ${formData.emailBackgroundColor};">
                             <tbody>
                                 <tr>
                                     <td>
                                         <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff; border-bottom: 0 solid #fff; border-left: 0 solid #fff; border-right: 0px solid #fff; border-top: 0 solid #fff; color: #000; margin: 0 auto;">
                                             <tbody>
                                                 <tr>
-                                                    <td align="right" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; background-color: #ffffff; padding-left: 30px; padding-right: 30px ;padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-bottom: 0px;">
+                                                    <td align="right" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; background-color: ${formData.emailBackgroundColor}; padding-left: 30px; padding-right: 30px ;padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-bottom: 0px;">
                                                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                             <tr>
                                                                 <td class="pad" align="right" style="padding-left:0px;padding-right:35px">
@@ -254,14 +296,14 @@ export const generateHtmlContent = (formData) => {
                             </tbody>
                         </table>
     
-                        <table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff;">
+                        <table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: ${formData.emailBackgroundColor};">
                             <tbody>
                                 <tr>
                                     <td>
                                         <table  align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff; border-bottom: 0 solid #fff; border-left: 0 solid #fff; border-right: 0px solid #fff; border-top: 0 solid #fff; color: #000; margin: 0 auto;">
                                             <tbody>
                                                 <tr>
-                                                    <td style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; background-color: #ffffff; padding-left: 30px; padding-right: 30px ;padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-bottom: 0px;">
+                                                    <td style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; background-color: ${formData.emailBackgroundColor}; padding-left: 30px; padding-right: 30px ;padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-bottom: 0px;">
                                                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                             <tr>
                                                                 <td class="pad" style="padding-top:10px;">
@@ -275,7 +317,7 @@ export const generateHtmlContent = (formData) => {
                                                             <tr>
                                                                 <td class="pad" style="padding-bottom:25px;padding-top:10px;word-wrap: break-word;word-break:break-all ">
                                                                     <div style="color:#101112;direction:ltr;font-family: ${formData.fontFamily};font-size:14px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;mso-line-height-alt:16.8px;">
-                                                                        <p style="margin: 0;text-align: left;word-wrap: break-word; word-break:break-all; font-family:'arvo', Helvetica, Arial,sans-serif ">{{Customer Text}}</p>
+                                                                        <p style="margin: 0;color:${formData.primaryColor};text-align: left;word-wrap: break-word; word-break:break-all; font-family:'arvo', Helvetica, Arial,sans-serif ">{{Customer Text}}</p>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -337,6 +379,7 @@ export const generateHtmlContent = (formData) => {
 								</table>
 							</td>
 						</tr>
+                        ${socialIconsHtml}
 					</tbody>
 				</table>
 			</td>
