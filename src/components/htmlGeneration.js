@@ -2,6 +2,32 @@ import React from 'react';
 
 export const generateHtmlContent = (formData) => {
 
+    const headerImg = formData.includeHeaderImage ? `<table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+    <tbody>
+        <tr>
+            <td>
+                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: ${formData.primaryColor}; width: 640px; margin: 0 auto;" width="640">
+                    <tbody>
+                        <tr>
+                            <td width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 0px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                    <tr>
+                                        <td class="pad">
+                                            <div class="alignment" align="center" style="line-height:10px">
+                                                <div style="max-width: 640px;"><img src="${formData.headerImage}" style="display: block; height: auto; border: 0; width: 640px;" width="640"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>` : ''
+
     const socialIconsHtml = formData.includeSocialIcons ? `
     <table class="social_block block-1" width="100%" border="0"
 														cellpadding="0" cellspacing="0" role="presentation"
@@ -115,31 +141,7 @@ export const generateHtmlContent = (formData) => {
                                 </tr>
                             </tbody>
                         </table>
-                        <table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; color: ${formData.primaryColor}; width: 640px; margin: 0 auto;" width="640">
-                                            <tbody>
-                                                <tr>
-                                                    <td width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 0px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
-                                                        <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                            <tr>
-                                                                <td class="pad">
-                                                                    <div class="alignment" align="center" style="line-height:10px">
-                                                                        <div style="max-width: 640px;"><img src="${formData.headerImage}" style="display: block; height: auto; border: 0; width: 640px;" width="640"></div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        ${headerImg}
     
                         <table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: ${formData.emailBackgroundColor};">
                             <tbody>
@@ -356,7 +358,7 @@ export const generateHtmlContent = (formData) => {
 														<td class="pad" style="padding-top:5px;">
 															<div
 																style="color:#ffffff;direction:ltr;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:14px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;mso-line-height-alt:16.8px;">
-																<p style="margin: 0;font-size: 12px">Questions or Comments? Click <a href="#" style="text-decoration:underline;color:#ffffff" target="_blank">Here</a></p>
+																<p style="color: ${formData.footerFontColor};margin: 0;font-size: 12px">Questions or Comments? Click <a href="#" style="text-decoration:underline;color:#ffffff" target="_blank">Here</a></p>
 															</div>
 														</td>
 													</tr>
@@ -368,7 +370,7 @@ export const generateHtmlContent = (formData) => {
 														<td class="pad" style="padding-top:10px; padding-bottom: 5px">
 															<div
 																style="color:#ffffff;direction:ltr;font-family:Arial, Helvetica Neue, Helvetica, sans-serif;font-size:12px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;mso-line-height-alt:14.399999999999999px;">
-																<p style="margin: 0;">&copy;{{Date Year}} ${formData.merchantName}.</p>
+																<p style="margin: 0;color: ${formData.footerFontColor};">&copy;{{Date Year}} ${formData.merchantName}.</p>
 															</div>
 														</td>
 													</tr>

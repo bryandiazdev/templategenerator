@@ -34,11 +34,13 @@ export default function CustomizationForm() {
         primaryColor: '#000000',
         secondaryColor: '#7e222d',
         backgroundColor: '#e7e7e7',
-        emailBackgroundColor: '#ffffff', // Added email background color
-        includeSocialIcons: false, // Added toggle state
-        facebookLink: '', // Added Facebook link
-        instagramLink: '', // Added Instagram link
-        twitterLink: '', // Added Twitter link
+        emailBackgroundColor: '#ffffff',
+        includeSocialIcons: false,
+        facebookLink: '',
+        instagramLink: '',
+        twitterLink: '',
+        includeHeaderImage: true, // For the header image toggle
+        footerFontColor: '#ffffff', // For footer font color
         giftCardNickname: '',
         fontFamily: 'Arial',
         accentColor: '#ffcc00',
@@ -76,7 +78,8 @@ export default function CustomizationForm() {
                         { id: 'accentColor', label: 'Accent Color', xs: 12, sm: 6, type: 'color' },
                         { id: 'buttonColor', label: 'Button Color', xs: 12, sm: 6, type: 'color' },
                         { id: 'buttonText', label: 'Button Text', xs: 12 },
-                        { id: 'emailBackgroundColor', label: 'Email Background Color', xs: 12, type: 'color' }, // Added email background color picker
+                        { id: 'emailBackgroundColor', label: 'Email Background Color', xs: 12, type: 'color' },
+                        { id: 'footerFontColor', label: 'Footer Font Color', xs: 12, type: 'color' }, // Footer font color picker
                     ]).map(field => (
                         <Grid item xs={field.xs} sm={field.sm} key={field.id}>
                             <TextField
@@ -97,6 +100,25 @@ export default function CustomizationForm() {
                         </Grid>
                     ))}
                     <Grid item xs={12}>
+                    <p style={{color: 'black', fontFamily: 'sans-serif'}}>Header Image?</p>
+                        <FormControlLabel
+                            control={<Switch checked={formData.includeHeaderImage} onChange={handleChange} name="includeHeaderImage" />}
+                            label="Include Header Image?"
+                        />
+                        {formData.includeHeaderImage && (
+                        <Grid item xs={12}>
+                            <TextField
+                                fullWidth
+                                id="headerImage"
+                                label="Header Image URL"
+                                name="headerImage"
+                                autoComplete="headerImage"
+                                onChange={handleChange}
+                                value={formData.headerImage}
+                                sx={{ mt: 2 }}
+                            />
+                        </Grid>
+                    )}
                       <p style={{color: 'black', fontFamily: 'sans-serif'}}>Social Icons?</p>
                         <FormControlLabel
                             control={<Switch checked={formData.includeSocialIcons} onChange={handleChange} name="includeSocialIcons" />}
@@ -137,7 +159,7 @@ export default function CustomizationForm() {
                             </>
                         )}
                     </Grid>
-                    <Button disabled={!formData.merchantName.length > 0 || !formData.specialImage.length > 0 || !formData.headerImage.length > 0 || !formData.buttonText.length > 0} type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, ml: 2 }}>
+                    <Button disabled={!formData.merchantName.length > 0 || !formData.specialImage.length > 0 || (formData.includeHeaderImage && !formData.headerImage.length > 0) || !formData.buttonText.length > 0} type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, ml: 2 }}>
                         Generate HTML
                     </Button>
                     </Grid>
@@ -149,8 +171,8 @@ export default function CustomizationForm() {
 }
 
 const textFieldData = [
+    // Note: Removed 'headerImage' from here since it's handled separately now.
     {id: 'merchantName', label: 'Merchant Name', xs: 12},
-    { id: 'headerImage', label: 'Header Image URL', xs: 12 },
     { id: 'specialImage', label: 'Gift Card Image URL', xs: 12 },
     { id: 'primaryColor', label: 'Primary Text Color', xs: 12, sm: 4, type: 'color' },
     { id: 'secondaryColor', label: 'Secondary Color', xs: 12, sm: 4, type: 'color' },
