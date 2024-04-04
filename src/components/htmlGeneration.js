@@ -280,10 +280,10 @@ export const generateHtmlContent = (formData) => {
                                                     <td align="right" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; background-color: ${formData.emailBackgroundColor}; padding-left: 30px; padding-right: 30px ;padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-bottom: 0px;">
                                                         <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                             <tr>
-                                                                <td class="pad" align="right" style="padding-left:0px;padding-right:35px">
-                                                                    <div style="line-height:10px;display:inline-block;width:182px">
+                                                                <td class="pad" align="left" style="padding-left:0px;padding-right:0px;">
+                                                                    <div style="line-height:10px;display:inline-block;width:182px;">
                                                                         <a href="{{Secure URL and Key}}">
-                                                                            <button style="background: ${formData.buttonColor};color: #000000;padding:.5rem 1rem;border-radius:16px;border: none;width: 260px; position: relative;right:42px;">${formData.buttonText}</button>
+                                                                            <button style="background: ${formData.buttonColor};color: #000000;padding:.5rem 1rem;border-radius:16px;border: none;">${formData.buttonText}</button>
                                                                         </a>
                                                                     </div>
                                                                 </td>
