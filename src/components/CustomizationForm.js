@@ -30,7 +30,7 @@ export default function CustomizationForm() {
         emailURL: '',
         secureURLAndKey: '',
         headerImage: '',
-        specialImage: '',
+        // specialImage: '',
         primaryColor: '#000000',
         secondaryColor: '#7e222d',
         backgroundColor: '#e7e7e7',
@@ -159,7 +159,7 @@ export default function CustomizationForm() {
                             </>
                         )}
                     </Grid>
-                    <Button disabled={!formData.merchantName.length > 0 || !formData.specialImage.length > 0 || (formData.includeHeaderImage && !formData.headerImage.length > 0) || !formData.buttonText.length > 0} type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, ml: 2 }}>
+                    <Button disabled={!formData.merchantName.length > 0 || (formData.includeHeaderImage && !formData.headerImage.length > 0) || !formData.buttonText.length > 0} type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, ml: 2 }}>
                         Generate HTML
                     </Button>
                     </Grid>
@@ -173,7 +173,6 @@ export default function CustomizationForm() {
 const textFieldData = [
     // Note: Removed 'headerImage' from here since it's handled separately now.
     {id: 'merchantName', label: 'Merchant Name', xs: 12},
-    { id: 'specialImage', label: 'Gift Card Image URL', xs: 12 },
     { id: 'primaryColor', label: 'Primary Text Color', xs: 12, sm: 4, type: 'color' },
     { id: 'secondaryColor', label: 'Secondary Color', xs: 12, sm: 4, type: 'color' },
     { id: 'backgroundColor', label: 'Background Color', xs: 12, sm: 4, type: 'color' },

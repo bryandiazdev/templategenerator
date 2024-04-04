@@ -170,7 +170,7 @@ export const generateHtmlContent = (formData) => {
                                                             <tr>
                                                                 <td class="pad" style="width:100%;padding-right:25px;padding-left:25px;padding-top:5px">
                                                                     <div align="center" style="line-height:10px">
-                                                                    <p style="text-align: left;line-height:18px; font-family: ${formData.fontFamily}; color:${formData.primaryColor};">To view your ${formData.giftCardNickname} and the value, please the <a href="${formData.secureURLAndKey}" style="color:${formData.accentColor}; font-weight: bold; font-family: ${formData.fontFamily} ">Print Your ${formData.giftCardNickname} Now</a> button and follow the instructions to print and redeem.</p>
+                                                                    <p style="text-align: left;line-height:18px; font-family: ${formData.fontFamily}; color:${formData.primaryColor};">To view your ${formData.giftCardNickname} and the value, please click the <a href="${formData.secureURLAndKey}" style="color:${formData.accentColor}; font-weight: bold; font-family: ${formData.fontFamily} ">Print Your ${formData.giftCardNickname} Now</a> button and follow the instructions to print and redeem.</p>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -253,10 +253,8 @@ export const generateHtmlContent = (formData) => {
                                                         <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                             <tr>
                                                                 <td class="pad" style="width:40%;padding-right:0px;padding-left:0px;">
-                                                                    <div align="center" style="width: 100%">
-                                                                        <div align="center" style="width: 100%">
-                                                                            <img style="width: 260px;" src="${formData.specialImage}"/>
-                                                                        </div>
+                                                                    <div align="center">
+                                                                            {{cardart:256x156}}
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -270,23 +268,29 @@ export const generateHtmlContent = (formData) => {
                             </tbody>
                         </table>
     
-                        <table align="center" width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: ${formData.emailBackgroundColor};">
+                        <table width="640" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: ${formData.emailBackgroundColor};">
                             <tbody>
                                 <tr>
                                     <td>
-                                        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff; border-bottom: 0 solid #fff; border-left: 0 solid #fff; border-right: 0px solid #fff; border-top: 0 solid #fff; color: #000; margin: 0 auto;">
+                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="width: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff; border-bottom: 0 solid #fff; border-left: 0 solid #fff; border-right: 0px solid #fff; border-top: 0 solid #fff; color: #000; margin: 0 auto;">
                                             <tbody>
                                                 <tr>
-                                                    <td align="right" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; background-color: ${formData.emailBackgroundColor}; padding-left: 30px; padding-right: 30px ;padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-bottom: 0px;">
-                                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                                    <td align="right" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; background-color: ${formData.emailBackgroundColor};padding-bottom: 5px; padding-right: 30px; padding-top: 5px; vertical-align: top; border-top: 0px; border-bottom: 0px;">
+                                                        <table align="right" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                             <tr>
-                                                                <td class="pad" align="left" style="padding-left:0px;padding-right:0px;">
-                                                                    <div style="line-height:10px;display:inline-block;width:182px;">
-                                                                        <a href="{{Secure URL and Key}}">
-                                                                            <button style="background: ${formData.buttonColor};color: #000000;padding:.5rem 1rem;border-radius:16px;border: none;">${formData.buttonText}</button>
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
+                                                            <td class="pad">
+                                                            <div style="line-height:10px;display:inline-block;width:256px;">
+                                                                <!--[if mso]>
+                                                                <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{Secure URL and Key}}" style="height:38px;v-text-anchor:middle;width:256px;" arcsize="40%" stroke="f" fillcolor="${formData.buttonColor}">
+                                                                  <w:anchorlock/>
+                                                                  <center>
+                                                                <![endif]--><a style="text-decoration: none;font-family: ${formData.fontFamily}" href="{{Secure URL and Key}}">
+                                                                    <div style="background: ${formData.buttonColor};color: #000000;padding:15px;border-radius:20px;height: 38px;border: none; text-align: center;width: 256px;"><span style="text-align:center;display: block;color: ${formData.footerFontColor}">${formData.buttonText}</span></div></a><!--[if mso]>
+                                                                </center>
+                                                              </v:roundrect>
+                                                            <![endif]-->
+                                                            </div>
+                                                        </td>
                                                             </tr>
                                                         </table>
                                                     </td>
@@ -334,7 +338,7 @@ export const generateHtmlContent = (formData) => {
                         </table>
     
                         <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"
-	style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color:#DB2B36; min-width:640px; max-width:640px; margin: 0 auto">
+	style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color:transparent; min-width:640px; max-width:640px; margin: 0 auto">
 	<tbody>
 		<tr>
 			<td>
@@ -381,13 +385,14 @@ export const generateHtmlContent = (formData) => {
 								</table>
 							</td>
 						</tr>
-                        ${socialIconsHtml}
+                        
 					</tbody>
 				</table>
 			</td>
 		</tr>
 	</tbody>
 </table><!-- End -->
+${socialIconsHtml}
                     </td>
                 </tr>
             </tbody>
