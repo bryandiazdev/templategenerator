@@ -103,7 +103,7 @@ export default function CustomizationForm() {
                     <p style={{color: 'black', fontFamily: 'sans-serif'}}>Header Image?</p>
                         <FormControlLabel
                             control={<Switch checked={formData.includeHeaderImage} onChange={handleChange} name="includeHeaderImage" />}
-                            label="Include Header Image?"
+                            // label="Include Header Image?"
                         />
                         {formData.includeHeaderImage && (
                         <Grid item xs={12}>
